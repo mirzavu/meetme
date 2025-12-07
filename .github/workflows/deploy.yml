@@ -55,8 +55,8 @@ jobs:
           cp pocketbase deploy-package/
           # Copy migrations
           cp -r pb_migrations deploy-package/pb_migrations
-          # Copy production ecosystem config
-          cp server/ecosystem.production.config.js deploy-package/ecosystem.config.js
+          # Copy production ecosystem config (rename to .cjs for CommonJS)
+          cp server/ecosystem.production.config.cjs deploy-package/ecosystem.config.cjs
 
       - name: Compress Artifact
         # Tarballing makes the upload much faster than thousands of small files
@@ -141,7 +141,7 @@ jobs:
             sleep 1
             
             # Start fresh
-            pm2 start ecosystem.config.js --update-env
+            pm2 start ecosystem.config.cjs --update-env
             pm2 save
             
             # 7.1 Verify PM2 CWD
