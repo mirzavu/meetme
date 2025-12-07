@@ -1,0 +1,13 @@
+{
+  "name": "meetme-app",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Meetme request app",
+  "scripts": {
+    "setup-pb": "node setup-pb.js"
+  },
+  "dependencies": {
+    "pocketbase": "^0.20.0"
+  }
+}
+
